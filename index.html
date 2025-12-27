@@ -3,12 +3,12 @@
 <body>
 <title>webOS HDMI Input Capture Test</title>
 
-HDMI 1
+
 <video autoplay style="width:50%;height:50%">
-  <source type="service/webos-external" src="ext://hdmi:1"></source>
+  <source type="service/webos-external" src="ext://hdmi:1" id="background-video"></source>
 </video>
 
-  <script>      document.addEventListener('keydown',function(e){
+  <script>    document.addEventListener('keydown',function(e){
     if(e.keyCode==33)//key code for 'page up'
         location="https://itsrealm12c.github.io/lginput/hdmi4"
 })</script>
@@ -19,3 +19,46 @@ HDMI 1
 })</script>
 
 
+  <style>
+    /* Basic Reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden; /* Prevents scrollbars */
+}
+
+/* Video Styling */
+#background-video {
+    position: fixed; /* Stays in place when scrolling */
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto; /* Adjusts to keep aspect ratio */
+    height: auto;
+    z-index: -1; /* Puts it behind other content */
+    background-size: cover; /* Ensures video covers the area */
+}
+
+/* Content Overlay Styling */
+.content {
+    position: relative; /* Or fixed, depends on layout */
+    z-index: 1; /* Sits above the video */
+    color: white;
+    text-align: center;
+    padding: 50px;
+    /* Add Flexbox for centering if needed */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+}
+
+h1, p {
+    background: rgba(0,0,0,0.5); /* Semi-transparent background for text */
+    padding: 10px 20px;
+}
+    
+  </style>
